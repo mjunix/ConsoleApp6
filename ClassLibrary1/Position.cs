@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,24 @@ namespace ClassLibrary1
         {
             this.X = x;
             this.Y = y;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                Position p = (Position)obj;
+                return (X == p.X) && (Y == p.Y);
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return (X << 2) ^ Y;
         }
 
         /// <summary>
