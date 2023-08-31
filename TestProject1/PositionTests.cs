@@ -22,5 +22,12 @@ namespace TestProject1
             Position position = new(3, 5);
             Assert.Equal(5, position.Y);
         }
+
+        [Fact]
+        public void Test_ToString()
+        {
+            Position position = new(3, 5);
+            Assert.Equal("[3, 5]", position.ToString());
+        }
     }
 }

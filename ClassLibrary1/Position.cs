@@ -32,5 +32,14 @@ namespace ClassLibrary1
             this.X = x;
             this.Y = y;
         }
+
+        /// <summary>
+        /// Returns a string representation of this position.
+        /// </summary>
+        /// <returns>A string of the form "[X, Y]"</returns>
+        public override string ToString()
+        {
+            return $"[{this.X}, {this.Y}]";
+        }
     }
 }
