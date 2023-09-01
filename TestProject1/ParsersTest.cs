@@ -27,5 +27,25 @@ namespace TestProject1
         {
             Assert.Equal(expect, Parsers.ParseCommands(line));
         }
+
+        [Theory]
+        [InlineData("1")]
+        [InlineData("1 1 0")]
+        [InlineData("1 1 0 0 1")]
+        [InlineData("x x x x")]
+        [InlineData("1 1 x x")]
+        public void ParseHeaderWithInvalidInput(string line)
+        {
+            Assert.Throws<Exception>(() => Parsers.ParseHeader(line));
+        }
+
+        [Theory]
+        [InlineData("99999")]
+        [InlineData("x")]
+        [InlineData("3 x")]
+        public void ParseCommandsWithInvalidInput(string line)
+        {
+            Assert.Throws<Exception>(() => Parsers.ParseCommands(line));
+        }
     }
 }
