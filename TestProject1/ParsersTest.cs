@@ -23,7 +23,7 @@ namespace TestProject1
         [Theory]
         [InlineData("1,4,1,3,2,3,2,4,1,0", new Command[] { Command.MoveForward, Command.TurnLeft, Command.MoveForward, Command.TurnRight, Command.MoveBackward, Command.TurnRight, Command.MoveBackward, Command.TurnLeft, Command.MoveForward, Command.Quit })]
         [InlineData("1 4 1 3 2 3 2 4 1 0", new Command[] { Command.MoveForward, Command.TurnLeft, Command.MoveForward, Command.TurnRight, Command.MoveBackward, Command.TurnRight, Command.MoveBackward, Command.TurnLeft, Command.MoveForward, Command.Quit })]
-        public void Test_ParseCommads(string line, Command[] expect)
+        public void Test_ParseCommands(string line, Command[] expect)
         {
             Assert.Equal(expect, Parsers.ParseCommands(line));
         }
