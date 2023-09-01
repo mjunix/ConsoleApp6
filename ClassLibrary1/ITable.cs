@@ -9,7 +9,7 @@ namespace ClassLibrary1
     /// <summary>
     /// Interface for a table that an object moves on.
     /// </summary>
-    internal interface ITable
+    public interface ITable
     {
         /// <summary>
         /// Return true if the given position is a valid position on this table, false otherwise.
