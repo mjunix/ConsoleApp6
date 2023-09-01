@@ -12,14 +12,12 @@ namespace ClassLibrary1
         /// Simulate a moving object on a table.
         /// </summary>
         /// <param name="table">The table the object is moving on</param>
-        /// <param name="startPositionX">Initial X-coordinate of moving object</param>
-        /// <param name="startPositionY">Initial Y-coordinate of moving object</param>
+        /// <param name="startPosition">Initial position of the moving object</param>
         /// <param name="commands">The commands to execute</param>
         /// <returns>The final position of the object after executing the commands</returns>
         /// <exception cref="ArgumentException">If starting position is illegal on this table</exception>
-        public static Position Simulate(ITable table, int startPositionX, int startPositionY, Command[] commands)
+        public static Position Simulate(ITable table, Position startPosition, Command[] commands)
         {
-            Position startPosition = new(startPositionX, startPositionY);
             MovingObject movingObject = new(startPosition);
 
             if (!table.IsValidPosition(startPosition))

@@ -18,10 +18,11 @@ namespace TestProject1
         public void TestSimulationWithRectangularTable(int tableWidth, int tableHeight, int startPositionX, int startPositionY, Command[] commands, int finalPositionX, int finalPositionY)
         {
             ITable table = new RectangularTable(tableWidth, tableHeight);
+            Position startPosition = new(startPositionX, startPositionY);
 
             Position expect = new(finalPositionX, finalPositionY);
 
-            Assert.Equal(expect, Simulator.Simulate(table, startPositionX, startPositionY, commands));
+            Assert.Equal(expect, Simulator.Simulate(table, startPosition, commands));
         }
     }
 }
