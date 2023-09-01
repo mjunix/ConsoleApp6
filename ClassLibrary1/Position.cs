@@ -49,7 +49,7 @@ namespace ClassLibrary1
 
         public override int GetHashCode()
         {
-            return (X << 2) ^ Y;
+            return X ^ Y;
         }
 
         /// <summary>
