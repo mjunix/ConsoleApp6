@@ -40,6 +40,11 @@ namespace ClassLibrary1
             {
                 if (int.TryParse(token, out int result))
                 {
+                    if (!IsValidCommand(result))
+                    {
+                        throw new Exception($"Invalid instruction: {result}");
+                    }
+
                     return (Command)result;
                 }
                 else
@@ -49,6 +54,11 @@ namespace ClassLibrary1
             }).ToArray();
 
             return commands;
+        }
+
+        private static bool IsValidCommand(int value)
+        {
+            return Enum.IsDefined(typeof(Command), value);
         }
     }
 }
