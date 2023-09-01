@@ -22,7 +22,7 @@ namespace ClassLibrary1
 
             if (!table.IsValidPosition(startPosition))
             {
-                throw new ArgumentException($"Illegal start position on table: {startPosition}");
+                throw new InvalidPositionException($"Illegal start position on table: {startPosition}");
             }
 
             foreach (var command in commands)
@@ -43,6 +43,11 @@ namespace ClassLibrary1
                         break;
                     case Command.Quit:
                         return movingObject.CurrentPosition;
+                }
+
+                if (!table.IsValidPosition(movingObject.CurrentPosition))
+                {
+                    throw new InvalidPositionException($"Illegal position: {movingObject.CurrentPosition}");
                 }
             }
 
