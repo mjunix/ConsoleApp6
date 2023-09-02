@@ -24,5 +24,25 @@ namespace TestProject1
 
             Assert.Equal(expect, Simulator.Simulate(table, startPosition, commands));
         }
+
+        [Fact]
+        public void SimulateWithInvalidStartPositionShouldThrowException()
+        {
+            ITable table = new RectangularTable(1, 1);
+            Position startPosition = new(10, 20);
+            Command[] commands = Array.Empty<Command>();
+
+            Assert.Throws<InvalidPositionException>(() => { Simulator.Simulate(table, startPosition, commands); });
+        }
+
+        [Fact]
+        public void MovingToInvalidPositionShouldThrowException()
+        {
+            ITable table = new RectangularTable(1, 1);
+            Position startPosition = new(0, 0);
+            Command[] commands = new Command[] { Command.MoveForward };
+
+            Assert.Throws<InvalidPositionException>(() => { Simulator.Simulate(table, startPosition, commands); });
+        }
     }
 }
