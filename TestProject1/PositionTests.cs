@@ -37,6 +37,22 @@ namespace TestProject1
         }
 
         [Fact]
+        public void IsNotEqualWithNull()
+        {
+            Position position = new(0, 0);
+
+            Assert.False(position.Equals(null));
+        }
+
+        [Fact]
+        public void IsNotEqualWithDifferentType()
+        {
+            Position position = new(0, 0);
+
+            Assert.False(position.Equals(""));
+        }
+
+        [Fact]
         public void Test_GetHashCodeWithEqualPositions()
         {
             Position p1 = new(3, 5);
